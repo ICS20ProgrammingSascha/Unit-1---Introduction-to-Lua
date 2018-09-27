@@ -15,7 +15,7 @@ local areaOfRectangle
 display.setDefault("background", 30/255, 141/255, 243/255)
 
 -- to remove status bar
-display.setStatusBar(display.HiddenStatusbar)
+display.setStatusBar(display.HiddenStatusBar)
 
 --draw the rectangle that is half the width and height of the screen size.
 myRectangle = display.newRect(0, 0, widthOfRectangle, heightOfRectangle)
@@ -37,3 +37,18 @@ myRectangle:setStrokeColor (1, 0, 0)
 
 -- calculate the area
 areaOfRectangle = widthOfRectangle * heightOfRectangle
+
+
+-- write the area on the screen. Take into consideration the size of the font when positioning it on the screen.
+areaText = display.newText("The area of this rectangle with a width of /n" ..
+	widthOfRectangle .. "and a height of " .. heightOfRectangle .. " is " ..
+		areaOfRectangle .. " pixels².", 0, 0, Arial, textSize)
+
+-- anchor the text and set its (x, y) position
+areaText.anchorX = 0
+areaText.anchorY = 0
+areaText.x = 20
+areaText.y = display.contentHeight/2
+
+--set the colour of the newText
+areaText:setTextColor(1, 1, 1)
