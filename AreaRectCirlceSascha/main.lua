@@ -38,11 +38,19 @@ myRectangle:setStrokeColor (0, 3, 0)
 -- calculate the area
 areaOfRectangle = widthOfRectangle * heightOfRectangle
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 355c5f4e71ee89ce4e0684c5259c9068f386c5ce
 -- write the area on the screen. Take into consideration the size of the 
 -- font when positioning it on the screen
 areaText = display.newText("The area of the rectangle with a width of \n" ..
 	                       widthOfRectangle .. " and a height of " .. heightOfRectangle ..  " is " .. 
+<<<<<<< HEAD
 	                       areaOfRectangle .. " pixels².", 0, 0, Arial, textSize)
+=======
+	                       areaOfRectangle .. " pixels^2.", 0, 0, Arial, textSize)
+>>>>>>> 355c5f4e71ee89ce4e0684c5259c9068f386c5ce
 -- anchor the text and its (x,y) position
 areaText.anchorX = 0
 areaText.anchorY = 0
@@ -67,6 +75,36 @@ myCircle.anchorX = 0
 myCircle.anchorY = 0
 myCircle.x = 650
 myCircle.y = 20
+<<<<<<< HEAD
+=======
+
+--set the width of the border
+myCircle.strokeWidth = 8
+
+--set the colour of the rectangle
+myCircle:setFillColor(204/255, 153/255, 255/255)
+
+-- set the color of the border
+myCircle:setStrokeColor (102/255, 0, 204/255)
+
+-- calculate the area
+areaOfCircle = radius*radius * pi
+
+-- write the area on the screen. Take into consideration the size of the 
+-- font when positioning it on the screen
+areaText = display.newText("The area of the circle with a radius of \n" ..
+	                       radius ..  " is " .. 
+	                       areaOfCircle .. " pixels^2.", 0, 0, Arial, textSize)
+-- anchor the text and its (x,y) position
+areaText.anchorX = 0
+areaText.anchorY = 0
+areaText.x = 20
+areaText.y = (display.contentHeight/2) + 150
+
+-- set the colour of the newText
+areaText:setTextColor(102/255, 0, 204/255)
+=======
+>>>>>>> 355c5f4e71ee89ce4e0684c5259c9068f386c5ce
 
 --set the width of the border
 myCircle.strokeWidth = 8
@@ -91,5 +129,11 @@ areaText.anchorY = 0
 areaText.x = 20
 areaText.y = (display.contentHeight/2) + 150
 
+<<<<<<< HEAD
 -- set the colour of the newText
 areaText:setTextColor(102/255, 0, 204/255)
+=======
+--set the colour of the newText
+areaText:setTextColor(1, 1, 1)
+>>>>>>> d2f8cf045c55f637730d57aa9e9aad2ca3582e96
+>>>>>>> 355c5f4e71ee89ce4e0684c5259c9068f386c5ce

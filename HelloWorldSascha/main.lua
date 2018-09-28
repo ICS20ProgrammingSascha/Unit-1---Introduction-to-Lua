@@ -25,6 +25,14 @@ textObject = display.newText( "Hello, Ms.Raffin!", 500, 500, nil, 100 )
 
 -- display text on the screen a position x = 500 and y = 500 with
 -- a default font style and font size of 50
+
+textObject = display.newText( "By: Sascha Motz", 500, 600, nil, 50 )
+
+-- sets the colour of the text
+textObject:setTextColor(0, 0, 0)
+
+-- display text on the screen a position x = 500 and y = 500 with
+-- a default font style and font size of 50
 textObject = display.newText( "By: Sascha Motz", 500, 600, nil, 50 )
 
 -- sets the colour of the text
