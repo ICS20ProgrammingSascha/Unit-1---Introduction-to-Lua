@@ -22,6 +22,9 @@ beetleship.alpha = 0
 beetleship.x = 0
 beetleship.y = display.contentHeight/3
 
+-- set the star to fade out
+transition.fadeIn( beetleship, { time=500 } )
+
 --Function: MoveShip
 -- Input: this function accepts and event listener
 --Output: none
@@ -46,7 +49,10 @@ star.alpha = 0
 
 --set the initial x and y position of star
 star.x = 400
-star.y = display.contentHeight/3
+star.y = 400
+
+-- set the star to fade out
+transition.fadeOut( star, { time=2000 } )
 
 --Function: MoveStar
 -- Input: this function accepts and event listener
@@ -54,7 +60,7 @@ star.y = display.contentHeight/3
 --Description: This function adds the scroll speed to the x-value of the star
 local function MoveStar (event)
 	--add the scroll speed to the x-value of the star
-	star.x = star.x + scrollSpeed + 5
+	star.x = star.x + scrollSpeed + 3
 	-- change the transparency of the star every time it moves so that it fades out
 	star.alpha = star.alpha + 0.01
 end
