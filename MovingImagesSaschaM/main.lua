@@ -41,6 +41,7 @@ end
 Runtime:addEventListener("enterFrame", MoveShip)
 
 --------------------------------------------------------------------------------------------
+-- variable for speed of the star
 scrollSpeedStar = 5
 
 -- character image with width and height
@@ -69,5 +70,3 @@ end
 
 --MoveStar will be called over and over again
 Runtime:addEventListener("enterFrame", MoveStar)
-
----------------------------------------------------------------------------------
