@@ -17,23 +17,26 @@ display.setStatusBar(display.HiddenStatusBar)
 display.setDefault("background", 255/255, 153/255, 204/255 )
 
 --create a local variable
-local textObject
+local textObjectGreeting
 
 -- display text on the screen a position x = 500 and y = 500 with
 -- a default font style and font size of 100
-textObject = display.newText( "Hello, Ms.Raffin!", 500, 500, nil, 100 )
+textObjectGreeting = display.newText( "Hello, Ms.Raffin!", 500, 500, nil, 100 )
 
 -- display text on the screen a position x = 500 and y = 500 with
 -- a default font style and font size of 50
 
-textObject = display.newText( "By: Sascha Motz", 500, 600, nil, 50 )
+--create a local variable
+local textObjectSignature
+
+textObjectSignature = display.newText( "By: Sascha Motz", 500, 600, nil, 50 )
 
 -- sets the colour of the text
-textObject:setTextColor(0, 0, 0)
+textObjectGreeting:setTextColor(0, 0, 0)
 
 -- display text on the screen a position x = 500 and y = 500 with
 -- a default font style and font size of 50
 textObject = display.newText( "By: Sascha Motz", 500, 600, nil, 50 )
 
 -- sets the colour of the text
-textObject:setTextColor(0, 0, 0)
+textObjectSignature:setTextColor(0, 0, 0)
