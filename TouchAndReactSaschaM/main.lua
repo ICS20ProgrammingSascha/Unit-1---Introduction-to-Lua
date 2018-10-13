@@ -69,22 +69,5 @@ end
 --add the respective listeners to each object
 blueButton:addEventListener("touch", BlueButtonListener)
 
-
 --add the respective listeners to each object
-redButton:addEventListener("touch", RedButtonListener)
-
---Correct Sound
-local correctSound = audio.loadSound( "Sounds/Correct Answer Sound Effect.mp3" )
---Setting a variable to an mp3 file
-local correctSoundChannel
-
-local function CorrectSoundListener(event)
-
-	if ( event.phase == "began" ) then
-		redButton.isVisible = true
-		blueButton.isVisible = false
-		textObject.isVisible = true
-		end
-	end
-
-	
+redButton:addEventListener("touch", RedButtonListener)	
