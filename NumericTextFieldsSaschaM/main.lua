@@ -8,7 +8,7 @@
 display.setStatusBar(display.HiddenStatusBar)
 
 --sets the background colour
-display.setDefault("background", 204/255, 255/255, 153/255)
+display.setDefault("background", 255/255, 153/255, 255/255)
 
 --------------------------------------------------------------------------------------------
 -- LOCAL VARIABLES
@@ -17,6 +17,7 @@ display.setDefault("background", 204/255, 255/255, 153/255)
 -- create local variables
 local questionObject
 local correctObject
+local incorrectObject
 local numericField
 local randomNumber1
 local randomNumber2
@@ -29,13 +30,13 @@ local correctAnswer
 
 local function AskQuestion()
 	-- generate 2 random numbers between a max. and a min. number
-	randomNumber1 = math.random(0,10)
-	randomNumber2 = math.random(0,10)
+	randomNumber1 = math.random(10,20)
+	randomNumber2 = math.random(10,20)
 
 	correctAnser = randomNumber1 + randomNumber2
 
 	-- create question in text object
-	questionObject.text = randomNumber1.. " + " .. " = "
+	questionObject.text = randomNumber1.. " + " ..  randomNumber2 .. " = "
 
 end
 
@@ -71,17 +72,29 @@ local function NumericFieldListener( event )
 	--------------------------------------------------------------------------------------------
 
 	-- display a question and sets the colour
-	questionObject = display.newText("", display.contentWidth/3, display.ContentHeight/2, nil, 50 )
-	questionObject:setTextColor(51,255, 153,255, 255,255)
+	questionObject = display.newText( "", display.contentWidth/3, display.contentHeight/2, nil, 75 )
+	questionObject:setTextColor(0,255, 0,255, 0,255)
 
 	-- create the correct text object and make it invisible
 	correctObject = display.newText( "Correct!", display.contentWidth/2, display.contentHeight*2/3, nil, 50)
-	correctObject:setTextColor(51,255, 153,255, 255,255)
+	correctObject:setTextColor(0,255, 255,255, 0,255)
 	correctObject.isVisible = false
+
+		-- create the incorrect text object and make it invisible
+	incorrectObject = display.newText( "Incorrect! Nice Try!", display.contentWidth/2, display.contentHeight*2/3, nil, 50)
+	incorrectObject:setTextColor(255,255, 0,255, 0,255)
+	incorrectObject.isVisible = false
 
 	-- Create teh numeric field
 	numericField = native.newTextField( display.contentWidth/2, display.contentHeight/2, 150, 80 )
 	numericField.inputType = "number"
 
 	-- add the event listener for the numeric field
-	numeric
+	numericField:addEventListener( "userInput", NumericFieldListener )
+
+--------------------------------------------------------------------------------------------
+-- FUNCTION CALLS
+--------------------------------------------------------------------------------------------
+
+-- call the function to ask the question
+AskQuestion()
