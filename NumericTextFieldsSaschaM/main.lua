@@ -32,8 +32,11 @@ local function AskQuestion()
 	-- generate 2 random numbers between a max. and a min. number
 	randomNumber1 = math.random(10,20)
 	randomNumber2 = math.random(10,20)
+	randomNumber3 = math.random(10,20)
 
-	correctAnser = randomNumber1 + randomNumber2
+	if ( ranom)
+
+	correctAnswer = randomNumber1 + randomNumber2
 
 	-- create question in text object
 	questionObject.text = randomNumber1.. " + " ..  randomNumber2 .. " = "
@@ -62,6 +65,10 @@ local function NumericFieldListener( event )
 			if (userAnswer == correctAnswer) then
 				correctObject.isVisible = true
 				timer.performWithDelay(2000, HideCorrect)
+			else
+				incorrectObject.isVisible = true
+				timer.performWithDelay(2000, HideIncorrect)
+
 
 			end
 		end
@@ -72,7 +79,7 @@ local function NumericFieldListener( event )
 	--------------------------------------------------------------------------------------------
 
 	-- display a question and sets the colour
-	questionObject = display.newText( "", display.contentWidth/3, display.contentHeight/2, nil, 75 )
+	questionObject = display.newText( "", display.contentWidth/3, display.contentHeight/2, nil, 50 )
 	questionObject:setTextColor(0,255, 0,255, 0,255)
 
 	-- create the correct text object and make it invisible
