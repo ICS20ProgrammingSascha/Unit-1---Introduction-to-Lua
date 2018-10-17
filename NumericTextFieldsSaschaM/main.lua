@@ -15,7 +15,9 @@ display.setDefault("background", 255/255, 153/255, 255/255)
 --------------------------------------------------------------------------------------------
 
 -- create local variables
-local questionObject
+local questionObject1
+local questionObject2
+local questionObject3
 local correctObject
 local incorrectObject
 local numericField
@@ -32,14 +34,29 @@ local function AskQuestion()
 	-- generate 2 random numbers between a max. and a min. number
 	randomNumber1 = math.random(10,20)
 	randomNumber2 = math.random(10,20)
-	randomNumber3 = math.random(10,20)
+	randomOperator = math.random(1,3)
 
-	if ( ranom)
+	if ( randomOperator == "1") then
 
 	correctAnswer = randomNumber1 + randomNumber2
 
 	-- create question in text object
-	questionObject.text = randomNumber1.. " + " ..  randomNumber2 .. " = "
+	questionObject1.text = randomNumber1.. " + " ..  randomNumber2 .. " = "
+
+	elseif ( randomOperator == "2") then
+
+	correctAnswer = randomNumber1 - randomNumber2
+
+	-- create question in text object
+	questionObject2.text = randomNumber1.. " - " ..  randomNumber2 .. " = "
+
+	elseif ( randomOperator == "3") then
+
+	correctAnswer = randomNumber1 * randomNumber2
+
+	-- create question in text object
+	questionObject3.text = randomNumber1.. " * " ..  randomNumber2 .. " = "
+	end
 
 end
 
@@ -92,8 +109,8 @@ local function NumericFieldListener( event )
 	incorrectObject:setTextColor(255,255, 0,255, 0,255)
 	incorrectObject.isVisible = false
 
-	-- Create teh numeric field
-	numericField = native.newTextField( display.contentWidth/2, display.contentHeight/2, 150, 80 )
+	-- Create the numeric field
+	numericField = native.newTextField( display.contentWidth/5, display.contentHeight/2, 150, 80 )
 	numericField.inputType = "number"
 
 	-- add the event listener for the numeric field
