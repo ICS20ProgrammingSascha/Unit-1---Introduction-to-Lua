@@ -23,6 +23,7 @@ local randomNumber1
 local randomNumber2
 local userAnswer
 local correctAnswer
+local correctSounds
 
 --------------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
