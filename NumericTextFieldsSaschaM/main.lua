@@ -86,9 +86,78 @@ local function NumericFieldListener( event )
 			if (userAnswer == correctAnswer) then
 				correctObject.isVisible = true
 				timer.performWithDelay(2000, HideCorrect)
+
+-----------------------------------------------------------------
+-- SOUNDS
+----------------------------------------------------------------
+
+-- Correct sound
+local correctSound = audio.loadSound("Sounds/correctSound.mp3" ) 
+-- Setting a variable to an mp3 file
+local correctSoundChannel
+
+local function NumericFieldListener(event)
+
+	-- User begins editing "numericField"
+	if ( event.phase == "began" ) then
+
+		-- clear text field
+		event.target.text = ""
+
+	elseif event.phase == "submitted" then
+
+			--when the answer is submitted (eneter key is pressed) set user input to user's answer
+			userAnswer = tonumber(event.target.text)
+
+			-- if the users answer and the correct answer are the same:
+		if (userAnswer == correctAnswer) then
+			correctObject.isVisible = true
+
+			correctSoundChannel = audio.play(correctSound)
+
+			timer.performWithDelay(2000, HideCorrect)
+		end
+	end
+end
+
 			else
+
 				incorrectObject.isVisible = true
 				timer.performWithDelay(2000, HideIncorrect)
+
+
+-----------------------------------------------------------------
+-- SOUNDS
+----------------------------------------------------------------
+
+-- Incorrect sound
+local incorrectSound = audio.loadSound("Sounds/incorrectSound.mp3" ) 
+-- Setting a variable to an mp3 file
+local incorrectSoundChannel
+
+local function NumericFieldListener(event)
+
+	-- User begins editing "numericField"
+	if ( event.phase == "began" ) then
+
+		-- clear text field
+		event.target.text = ""
+
+	elseif event.phase == "submitted" then
+
+			--when the answer is submitted (eneter key is pressed) set user input to user's answer
+			userAnswer = tonumber(event.target.text)
+
+			-- if the users answer and the correct answer are the same:
+		if (userAnswer == incorrectAnswer) then
+			correctObject.isVisible = true
+
+			incorrectSoundChannel = audio.play(incorrectSound)
+
+			timer.performWithDelay(2000, HideIncorrect)
+		end
+	end
+end
 
 			end
 

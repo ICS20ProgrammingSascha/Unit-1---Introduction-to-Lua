@@ -33,3 +33,12 @@ textObjectSignature = display.newText( "By: Sascha Motz", 500, 600, nil, 50 )
 
 -- sets the colour of the text
 textObjectGreeting:setTextColor(0, 0, 0)
+
+-----------------------------------------------------------------
+-- SOUNDS
+----------------------------------------------------------------
+
+-- Correct sound
+local bkgMusic = audio.loadSound("Sounds/bkgMusic.mp3" ) 
+-- Setting a variable to an mp3 file
+local bkgMusicChannel
