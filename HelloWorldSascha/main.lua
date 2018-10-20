@@ -16,6 +16,17 @@ display.setStatusBar(display.HiddenStatusBar)
 -- sets the background colour
 display.setDefault("background", 255/255, 153/255, 204/255 )
 
+-----------------------------------------------------------------
+-- SOUNDS
+----------------------------------------------------------------
+
+-- Setting a variable to an mp3 file
+local bkgMusic = audio.loadSound("Sounds/bkgMusic.mp3" ) 
+-- creating the music channel
+local bkgMusicChannel
+-- plays the music
+bkgMusicChannel = audio.play(bkgMusic)
+
 --create a local variable
 local textObjectGreeting
 
@@ -33,14 +44,3 @@ textObjectSignature = display.newText( "By: Sascha Motz", 500, 600, nil, 50 )
 
 -- sets the colour of the text
 textObjectGreeting:setTextColor(0, 0, 0)
-
------------------------------------------------------------------
--- SOUNDS
-----------------------------------------------------------------
-
--- Setting a variable to an mp3 file
-local bkgMusic = audio.loadSound("Sounds/bkgMusic.mp3" ) 
--- creating the music channel
-local bkgMusicChannel
--- plays the music
-bkgMusicChannel = audio.play(bkgMusic)
