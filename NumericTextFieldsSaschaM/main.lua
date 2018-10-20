@@ -38,6 +38,7 @@ local function AskQuestion()
 	randomNumber2 = math.random(10,20)
 	randomOperator = math.random(1,3)
 
+	-- Set the 1st random operator to addition
 	if ( randomOperator == 1) then
 
 		correctAnswer = randomNumber1 + randomNumber2
@@ -45,6 +46,7 @@ local function AskQuestion()
 		-- create question in text object
 		questionObject.text = randomNumber1.. " + " ..  randomNumber2 .. " = "
 
+	-- Set the 2nd random operator to subtraction
 	elseif ( randomOperator == 2) then
 
 		correctAnswer = randomNumber1 - randomNumber2
@@ -52,6 +54,7 @@ local function AskQuestion()
 		-- create question in text object
 		questionObject.text = randomNumber1.. " - " ..  randomNumber2 .. " = "
 
+	-- Set the 3rd random operator to multiplication
 	elseif ( randomOperator == 3) then
 
 		correctAnswer = randomNumber1 * randomNumber2
@@ -62,11 +65,13 @@ local function AskQuestion()
 	
 end
 
+-- function to display/hide correct object
 local function HideCorrect()
 	correctObject.isVisible = false
 	AskQuestion()
 end
 
+-- function to display/hide incorrect object
 local function HideIncorrect()
 	incorrectObject.isVisible = false
 	AskQuestion()
@@ -107,6 +112,7 @@ local function NumericFieldListener(event)
 			timer.performWithDelay(2000, HideCorrect)
 			score = score + 1
 
+			-- Display the score
 			scoreObject.text = "Score:" .. score
 			
 		else
