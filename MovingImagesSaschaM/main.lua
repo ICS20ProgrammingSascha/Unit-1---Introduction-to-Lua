@@ -9,6 +9,17 @@ display.setStatusBar(display.HiddenStatusBar)
 --global variables
 scrollSpeedBeetleship= 3
 
+-----------------------------------------------------------------
+-- SOUNDS
+----------------------------------------------------------------
+
+-- Setting a variable to an mp3 file
+local bkgMusic = audio.loadSound("Sounds/bkgMusic.mp3" ) 
+-- creating the music channel
+local bkgMusicChannel
+-- plays the music
+bkgMusicChannel = audio.play(bkgMusic)
+
 -- background image with width and height
 local beetleship = display.newImageRect("Images/background.png", 2048, 1536)
 
@@ -67,6 +78,7 @@ local function MoveStar (event)
 	-- change the transparency of the star every time it moves so that it fades out
 	star.alpha = star.alpha + 0.01
 end
+
 
 --MoveStar will be called over and over again
 Runtime:addEventListener("enterFrame", MoveStar)

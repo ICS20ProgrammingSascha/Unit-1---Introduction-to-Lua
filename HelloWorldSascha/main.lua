@@ -38,7 +38,9 @@ textObjectGreeting:setTextColor(0, 0, 0)
 -- SOUNDS
 ----------------------------------------------------------------
 
--- Correct sound
-local bkgMusic = audio.loadSound("Sounds/bkgMusic.mp3" ) 
 -- Setting a variable to an mp3 file
+local bkgMusic = audio.loadSound("Sounds/bkgMusic.mp3" ) 
+-- creating the music channel
 local bkgMusicChannel
+-- plays the music
+bkgMusicChannel = audio.play(bkgMusic)
