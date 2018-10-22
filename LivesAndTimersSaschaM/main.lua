@@ -62,6 +62,10 @@ local speedSound = audio.loadSound("Sounds/PopSound.wav" )
 -- Setting a variable to an mp3 file
 local speedSoundChannel
 
+--------------------------------------------------------------------------------------------
+-- LOCAL FUNCTIONS
+--------------------------------------------------------------------------------------------
+
 local function AskQuestion()
 
 	secondsLeft = totalSeconds
@@ -113,7 +117,7 @@ end
 local function DecreaseLives()
 
 	-- If there are no lives left, play a lose sound, show a you lose image
-	-- and cancel the tuimer remove the third heart by making it invisible
+	-- and cancel the timer remove the third heart by making it invisible
 	if (lives == 4) then
 		heart4.isVisible = false
 	elseif (lives == 3) then
@@ -123,9 +127,10 @@ local function DecreaseLives()
 	elseif (lives == 1) then
 		heart1.isVisible = false
 		timer.cancel( countDownTimer )
-		display.newImageRect("Images/gameOver.png", 150, 150)
-		gameOver = display.contentWidth/2
-		gameOver = display.contentHeight/2
+		display.newImageRect("Images/gameOver.png", 300, 300)
+		incorrectSoundChannel = audio.play(incorrectSound)
+		gameOver = display.contentWidth * 2 / 6
+		gameOver = display.contentHeight * 1 / 8
 	end
 
 	-- reset the number of seconds left
@@ -151,7 +156,7 @@ local function NumericFieldListener(event)
 			-- if the users answer and the correct answer are the same:
 		if (userAnswer == correctAnswer) then
 			correctObject.isVisible = true
-			correctSoundChannel = audio.play(correctSound)
+			correctSoundChannel = audio.play(correctSound)-
 			timer.performWithDelay(2000, HideCorrect)
 			score = score + 1
 
@@ -171,11 +176,6 @@ local function NumericFieldListener(event)
 		event.target.text = ""
 	end
 end
-
---------------------------------------------------------------------------------------------
--- LOCAL FUNCTIONS
---------------------------------------------------------------------------------------------
-
 
 local function UpdateTime()
 
@@ -211,7 +211,7 @@ end
 
 -- display a question and sets the colour
 questionObject = display.newText( "", display.contentWidth/3, display.contentHeight/2, nil, 55 )
-questionObject:setTextColor(0,255, 0,255, 0,255)
+questionObject:setTextColor(0,255, 204,255, 255,255)
 
 -- display the score and sets the colour
 scoreObject = display.newText( "Score:" .. score , display.contentWidth/1.2, display.contentHeight/3, nil, 60 )
@@ -223,7 +223,7 @@ clockText:setTextColor(0,255, 100,255, 255,255)
 
 -- create the correct text object and make it invisible
 correctObject = display.newText( "Correct!", display.contentWidth/2, display.contentHeight*2/3, nil, 50)
-correctObject:setTextColor(0,255, 255,255, 0,255)
+correctObject:setTextColor(255,255, 0,255, 0,255)
 correctObject.isVisible = false
 
 -- create the incorrect text object and make it invisible
@@ -233,7 +233,7 @@ incorrectObject.isVisible = false
 
 -- create the incorrect text object and make it invisible
 speedObject = display.newText( "Speed Up!", display.contentWidth/2, display.contentHeight*2/3, nil, 80)
-speedObject:setTextColor(255,255, 0,255, 0,255)
+speedObject:setTextColor(0,255, 2,255, 0,255)
 speedObject.isVisible = false
 
 -- Create the numeric field
@@ -245,19 +245,19 @@ numericField:addEventListener( "userInput", NumericFieldListener )
 
 --create the lives to display on the screen
 heart1 = display.newImageRect("Images/heart.png", 100, 100)
-heart1.x = display.contentWidth *7 / 8
+heart1.x = display.contentWidth * 7 / 8
 heart1.y = display.contentHeight * 1 / 7
 
 heart2 = display.newImageRect("Images/heart.png", 100, 100)
-heart2.x = display.contentWidth *6 / 8
+heart2.x = display.contentWidth * 6 / 8
 heart2.y = display.contentHeight * 1 / 7
 
 heart3 = display.newImageRect("Images/heart.png", 100, 100)
-heart3.x = display.contentWidth *5 / 8
+heart3.x = display.contentWidth * 5 / 8
 heart3.y = display.contentHeight * 1 / 7
 
 heart4 = display.newImageRect("Images/heart.png", 100, 100)
-heart4.x = display.contentWidth *4 / 8
+heart4.x = display.contentWidth * 4 / 8
 heart4.y = display.contentHeight * 1 / 7
 
 -- call the function to ask a new question
