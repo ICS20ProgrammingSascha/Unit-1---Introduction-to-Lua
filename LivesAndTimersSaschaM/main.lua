@@ -127,17 +127,16 @@ local function DecreaseLives()
 	elseif (lives == 1) then
 		heart1.isVisible = false
 		timer.cancel( countDownTimer )
-		display.newImageRect("Images/gameOver.png", 300, 300)
-		incorrectSoundChannel = audio.play(incorrectSound)
-		gameOver = display.contentWidth * 2 / 6
-		gameOver = display.contentHeight * 1 / 8
+		numericField.isVisible = false
+		gameOver = display.newImageRect("Images/gameOver.png", display.contentWidth, display.contentHeight)
+		--incorrectSoundChannel = audio.play(incorrectSound)
+		gameOver.x = display.contentWidth * 1 / 2
+		gameOver.y = display.contentHeight * 1 / 2
 	end
 
 	-- reset the number of seconds left
 	lives = lives - 1
 
-	-- call the function to ask a new question
-	AskQuestion()
 end
 
 local function NumericFieldListener(event)
@@ -156,7 +155,7 @@ local function NumericFieldListener(event)
 			-- if the users answer and the correct answer are the same:
 		if (userAnswer == correctAnswer) then
 			correctObject.isVisible = true
-			correctSoundChannel = audio.play(correctSound)-
+			correctSoundChannel = audio.play(correctSound)
 			timer.performWithDelay(2000, HideCorrect)
 			score = score + 1
 
