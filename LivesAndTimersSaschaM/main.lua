@@ -116,8 +116,7 @@ end
 
 local function DecreaseLives()
 
-	-- If there are no lives left, play a lose sound, show a you lose image
-	-- and cancel the timer remove the third heart by making it invisible
+	-- Cancel the timer remove the third heart by making it invisible
 	if (lives == 4) then
 		heart4.isVisible = false
 	elseif (lives == 3) then
