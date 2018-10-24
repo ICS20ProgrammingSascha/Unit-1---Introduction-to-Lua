@@ -131,8 +131,8 @@ local function DecreaseLives()
 		heart1.isVisible = false
 		timer.cancel( countDownTimer )
 		numericField.isVisible = false
+		incorrectSoundChannel = audio.play(incorrectSound)
 		gameOver = display.newImageRect("Images/gameOver.png", display.contentWidth, display.contentHeight)
-		--incorrectSoundChannel = audio.play(incorrectSound)
 		gameOver.x = display.contentWidth * 1 / 2
 		gameOver.y = display.contentHeight * 1 / 2
 	end

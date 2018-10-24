@@ -16,12 +16,8 @@ physics.start()
 ------------------------------------------------------------
 -- Ground
 local ground = display.newImage("Images/ground.png", 0, 0)
-	ground = display.contentWidth * 1 / 2
-	ground = display.contentHeight * 1 / 2
-
-	-- Change the width to be the same as the screen
-	ground.width = display.contentCenterX
-	ground.height = display.contentheight
+	ground = display.contentCenterX
+	ground = display.contentHeight * 12/ 2
 
 	-- Add to physics
 	physics.addBody(ground, "static", {friction=0.5, bounce=0.3})
@@ -32,11 +28,8 @@ local ground = display.newImage("Images/ground.png", 0, 0)
 local beam = display.newImage("Images/beam.png", 0, 0)
 
 -- set the x and y position
-beam.x = display.contentCenterX/5
-beam.y = display.contentCenterY*1.65
-
--- set the beam width to be half of the iPad width.
--- set the beam height to 1/10th of the iPad height.
+beam.x = display.contentCenterX/2
+beam.y = display.contentCenterY * 1/10
 
 -- rotate the beam -60 degrees so its on an angle
 beam:rotate(45)
@@ -54,11 +47,8 @@ local bkg = display.newImage("Images/bkg.png", 0, 0)
 	bkg.x = display.contentCenterX
 	bkg.y = display.contentCenterY
 
-	-- set the width of the bkg image to be the width of the iPad.
-	-- set the height of the bkg image to be the height of the iPad.
-
-	bkg = display.contentWidth 
-	bkg = display.contentHeight 
+	--bkg = display.contentWidth 
+	--bkg = disp lay.contentHeight
 
 	-- sned to back
 	bkg:toBack()
@@ -78,14 +68,40 @@ end
 
 local function secondBall()
 	--creating second ball
-	local ball2 = display.newImage("Images/super_ball.png", 0, 0)
+	local ball2 = display.newImage("Images/super_ball.png", 50, 50)
 
 	-- add to physics
 	physics.addBody(ball2, {demsity=1.0, friction=0.5, bounce=0.3, radius=12.5})
 end
 
+local function thirdBall()
+	--creating second ball
+	local ball3 = display.newImage("Images/super_ball.png", 100, 100)
+
+	-- add to physics
+	physics.addBody(ball3, {demsity=1.0, friction=0.5, bounce=0.3, radius=12.5})
+end
+
+local function fourthBall()
+	--creating second ball
+	local ball4 = display.newImage("Images/super_ball.png", 150, 150)
+
+	-- add to physics
+	physics.addBody(ball4, {demsity=1.0, friction=0.5, bounce=0.3, radius=12.5})
+end
+
+local function fithBall()
+	--creating second ball
+	local ball5 = display.newImage("Images/super_ball.png", 200, 200)
+
+	-- add to physics
+	physics.addBody(ball5, {demsity=1.0, friction=0.5, bounce=0.3, radius=12.5})
+end
 ----------------------------------------------------------------------
 -- TIMER DELAYS -call each function after the given millisecond
 ----------------------------------------------------------------------
 timer.performWithDelay( 0, firstBall)
 timer.performWithDelay(500, secondBall)
+timer.performWithDelay(1000, thirdBall)
+timer.performWithDelay(1500, fourthBall)
+timer.performWithDelay(2000, fithBall)
