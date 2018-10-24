@@ -99,21 +99,25 @@ local function AskQuestion()
 	
 end
 
+-- make the correct object visible
 local function HideCorrect()
 	correctObject.isVisible = false
 	AskQuestion()
 end
 
+-- make the incorrect object visible
 local function HideIncorrect()
 	incorrectObject.isVisible = false
 	AskQuestion()
 end
 
+-- make the speed object visible
 local function HideSpeed()
 	speedObject.isVisible = false
 	AskQuestion()
 end
 
+-- function that operates decrese lives
 local function DecreaseLives()
 
 	-- Cancel the timer remove the third heart by making it invisible
@@ -138,6 +142,7 @@ local function DecreaseLives()
 
 end
 
+-- function that operates numeric field lives
 local function NumericFieldListener(event)
 
 	-- User begins editing "numericField"
@@ -189,6 +194,7 @@ local function UpdateTime()
 		-- call the function to decrease lives
 		DecreaseLives()
 
+		-- displays the speed object
 		speedObject.isVisible = true
 		speedSoundChannel = audio.play(speedSound)
 		timer.performWithDelay(2000, HideSpeed)
@@ -246,14 +252,17 @@ heart1 = display.newImageRect("Images/heart.png", 100, 100)
 heart1.x = display.contentWidth * 7 / 8
 heart1.y = display.contentHeight * 1 / 7
 
+--create the lives to display on the screen
 heart2 = display.newImageRect("Images/heart.png", 100, 100)
 heart2.x = display.contentWidth * 6 / 8
 heart2.y = display.contentHeight * 1 / 7
 
+--create the lives to display on the screen
 heart3 = display.newImageRect("Images/heart.png", 100, 100)
 heart3.x = display.contentWidth * 5 / 8
 heart3.y = display.contentHeight * 1 / 7
 
+--create the lives to display on the screen
 heart4 = display.newImageRect("Images/heart.png", 100, 100)
 heart4.x = display.contentWidth * 4 / 8
 heart4.y = display.contentHeight * 1 / 7

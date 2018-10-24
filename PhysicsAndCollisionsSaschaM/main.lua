@@ -15,12 +15,13 @@ physics.start()
 -- Object
 ------------------------------------------------------------
 -- Ground
-local ground = display.newImage("Images/beam.png", 0, 0)
+local ground = display.newImage("Images/ground.png", 0, 0)
 	ground = display.contentWidth * 1 / 2
 	ground = display.contentHeight * 1 / 2
 
 	-- Change the width to be the same as the screen
-	ground.width = display.contentWidth
+	ground.width = display.contentCenterX
+	ground.height = display.contentheight
 
 	-- Add to physics
 	physics.addBody(ground, "static", {friction=0.5, bounce=0.3})
