@@ -1,12 +1,12 @@
 -- Title: PhysicsAndCollisions
 -- Name: Sascha Motz
 -- Course: ICS2O
--- This program
+-- This program displays balls the use physics and roll down a beam.
 
 -- hide the status bar
 display.setStatusBar(display.HiddenStatusBar)
 
--- load phsics
+-- load physics
 local physics = require("physics")
 
 -- start physics
@@ -24,10 +24,10 @@ local bkgMusic = audio.loadSound("Sounds/bkgMusic.mp3" )
 -- Ground
 local ground = display.newImage("Images/ground.png", 0, 0)
 	ground = display.contentCenterX
-	ground = display.contentHeight * 12/ 2
+	ground = display.contentHeight * 1/ 2
 
 	-- Add to physics
-	physics.addBody(ground, "static", {friction=0.5, bounce=0.3})
+	physics.addBody( ground, "static", {friction=0.5, bounce=0.3})
 
 ------------------------------------------------------------------------
 
@@ -35,8 +35,13 @@ local ground = display.newImage("Images/ground.png", 0, 0)
 local beam1 = display.newImage("Images/beam.png", 0, 0)
 
 -- set the x and y position
+<<<<<<< HEAD
 beam1.x = display.contentCenterX/2
 beam1.y = display.contentCenterY * 1/10
+=======
+beam.x = display.contentCenterX/2
+beam.y = display.contentCenterY * 1/2
+>>>>>>> b0420cb47b1d20bd51e2dbc12b4ecd56c8d395b7
 
 -- rotate the beam -60 degrees so its on an angle
 beam1:rotate(45)
