@@ -66,6 +66,7 @@ local speedSoundChannel
 -- LOCAL FUNCTIONS
 --------------------------------------------------------------------------------------------
 
+-- create fuction to ask the question
 local function AskQuestion()
 
 	secondsLeft = totalSeconds
@@ -163,9 +164,11 @@ local function NumericFieldListener(event)
 			timer.performWithDelay(2000, HideCorrect)
 			score = score + 1
 
+			-- displaying the text object for the score
 			scoreObject.text = "Score:" .. score
 			
 		else
+			-- display the inccorect text object and sound
 			incorrectObject.isVisible = true
 			incorrectSoundChannel = audio.play(incorrectSound)
 			timer.performWithDelay(2000, HideIncorrect)
@@ -180,6 +183,7 @@ local function NumericFieldListener(event)
 	end
 end
 
+-- create local function to update the time
 local function UpdateTime()
 
 	-- decrement the number of seconds
@@ -189,22 +193,20 @@ local function UpdateTime()
 	clockText.text = "Time Remaining: " .. secondsLeft
 
 	if (secondsLeft == 0 ) then
-		-- reset the number of seconds left
 
 		-- call the function to decrease lives
 		DecreaseLives()
 
-		-- displays the speed object
+		-- displays the speed object and sound
 		speedObject.isVisible = true
 		speedSoundChannel = audio.play(speedSound)
 		timer.performWithDelay(2000, HideSpeed)
 	end
 end
 
-
-
 -- function that calls the timer
 local function StartTimer()
+	
 	-- create a countdown timer that loops infinitly
 	countDownTimer = timer.performWithDelay( 1000, UpdateTime, 0)
 end
