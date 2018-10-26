@@ -24,10 +24,13 @@ local bkgMusic = audio.loadSound("Sounds/bkgMusic.mp3" )
 -- Ground
 local ground = display.newImage("Images/ground.png")
 	ground.x = display.contentCenterX
-	ground.y = display.contentHeight * 1/ 2
+	ground.y = display.contentHeight * 1/ 1
 
 	-- Add to physics
 physics.addBody(ground, "static", { friction=0.5, bounce=0.3 } )
+
+ground:scale(2, 2)
+
 
 ------------------------------------------------------------------------
 
@@ -35,19 +38,18 @@ physics.addBody(ground, "static", { friction=0.5, bounce=0.3 } )
 local beam1 = display.newImage("Images/beam.png", 0, 0)
 
 -- set the x and y position
-beam1.x = 100--display.contentCenterX/2
-beam1.y = display.contentCenterY * 1/2
+beam1.x = 120
+beam1.y = 550
 
 
 -- rotate the beam -60 degrees so its on an angle
 beam1:rotate(-45)
 
-beam1:scale(2, 2)
+beam1:scale(2, 4)
 
 -- add to physics
 physics.addBody(beam1, "static", {friction=0.5, bounce=0.3})
-
-
+----------------------------------------------------------------
 --display the image of the beam
 local beam2 = display.newImage("Images/beam.png")
 
@@ -57,7 +59,7 @@ beam2.y = display.contentCenterY
 
 beam2:scale(1, display.contentHeight)
 
--- send i to the back layer
+-- send it to the back layer
 beam1:toBack()
 
 -- send it to the back layer
@@ -65,7 +67,7 @@ beam2:toBack()
 
 -- add to physics
 physics.addBody(beam2, "static", {friction=0.5, bounce=0.3})
-
+------------------------------------------------------------------
 -- create background
 local bkg = display.newImage("Images/bkg.png", display.contentWidth, display.contentHeight)
 
@@ -77,7 +79,6 @@ local bkg = display.newImage("Images/bkg.png", display.contentWidth, display.con
 	bkg:toBack()
 
 	bkg:scale(1.9,1.9)
-
 ----------------------------------------------------------------------
 -- FUNCTIONS
 ----------------------------------------------------------------------
@@ -88,7 +89,9 @@ local function firstBall()
 	local ball1 = display.newImage("Images/super_ball.png", 5, 5)
 
 	--add to physics
-	physics.addBody(ball1, {density=1.0, friction=0.5, bounce=0.3, radius=25})
+	physics.addBody(ball1, {density=0.9, friction=0.5, bounce=0.3, radius=25})
+
+	ball1:scale(4,4)
 end
 
 local function secondBall()
@@ -96,7 +99,7 @@ local function secondBall()
 	local ball2 = display.newImage("Images/super_ball.png", 50, 50)
 
 	-- add to physics
-	physics.addBody(ball2, {demsity=0.5, friction=0.2, bounce=0.3, radius=12.5})
+	physics.addBody(ball2, {density=0.8, friction=0.2, bounce=0.3, radius=12.5})
 end
 
 local function thirdBall()
@@ -104,7 +107,7 @@ local function thirdBall()
 	local ball3 = display.newImage("Images/super_ball.png", 100, 100)
 
 	-- add to physics
-	physics.addBody(ball3, {demsity=0.7, friction=0.5, bounce=0.3, radius=12.5})
+	physics.addBody(ball3, {density=0.7, friction=0.9, bounce=0.3, radius=12.5})
 end
 
 local function fourthBall()
@@ -112,7 +115,7 @@ local function fourthBall()
 	local ball4 = display.newImage("Images/super_ball.png", 150, 150)
 
 	-- add to physics
-	physics.addBody(ball4, {demsity=1.0, friction=0.5, bounce=0.9, radius=12.5})
+	physics.addBody(ball4, {demnsity=1.0, friction=0.5, bounce=0.9, radius=12.5})
 end
 
 local function fithBall()
@@ -120,7 +123,7 @@ local function fithBall()
 	local ball5 = display.newImage("Images/super_ball.png", 200, 200)
 
 	-- add to physics
-	physics.addBody(ball5, {demsity=1.0, friction=0.9, bounce=0.2, radius=12.5})
+	physics.addBody(ball5, {density=1.0, friction=0.9, bounce=0.2, radius=12.5})
 end
 ----------------------------------------------------------------------
 -- TIMER DELAYS -call each function after the given millisecond
