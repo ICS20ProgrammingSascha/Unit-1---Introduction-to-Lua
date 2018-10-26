@@ -22,12 +22,12 @@ local bkgMusic = audio.loadSound("Sounds/bkgMusic.mp3" )
 -- Object
 ------------------------------------------------------------
 -- Ground
-local ground = display.newImage("Images/ground.png", 0, 0)
-	ground = display.contentCenterX
-	ground = display.contentHeight * 1/ 2
+local ground = display.newImage("Images/ground.png")
+	ground.x = display.contentCenterX
+	ground.y = display.contentHeight * 1/ 2
 
 	-- Add to physics
-	physics.addBody( ground, "static", {friction=0.5, bounce=0.3})
+physics.addBody(ground, "static", { friction=0.5, bounce=0.3 } )
 
 ------------------------------------------------------------------------
 
@@ -35,38 +35,39 @@ local ground = display.newImage("Images/ground.png", 0, 0)
 local beam1 = display.newImage("Images/beam.png", 0, 0)
 
 -- set the x and y position
-<<<<<<< HEAD
-beam1.x = display.contentCenterX/2
-beam1.y = display.contentCenterY * 1/10
-=======
-beam.x = display.contentCenterX/2
-beam.y = display.contentCenterY * 1/2
->>>>>>> b0420cb47b1d20bd51e2dbc12b4ecd56c8d395b7
+beam1.x = 100--display.contentCenterX/2
+beam1.y = display.contentCenterY * 1/2
+
 
 -- rotate the beam -60 degrees so its on an angle
-beam1:rotate(45)
+beam1:rotate(-45)
 
--- send it to the back layer
-beam1:toback()
+beam1:scale(2, 2)
 
 -- add to physics
 physics.addBody(beam1, "static", {friction=0.5, bounce=0.3})
 
+
 --display the image of the beam
-local beam2 = display.newImage("Images/beam.png", 0, 0)
+local beam2 = display.newImage("Images/beam.png")
 
 -- set the x and y position
 beam2.x = display.contentWidth * 7/8
 beam2.y = display.contentCenterY
 
+beam2:scale(1, display.contentHeight)
+
+-- send i to the back layer
+beam1:toBack()
+
 -- send it to the back layer
-beam2:toback()
+beam2:toBack()
 
 -- add to physics
 physics.addBody(beam2, "static", {friction=0.5, bounce=0.3})
 
 -- create background
-local bkg = display.newImage("Images/bkg.png", 0, 0)
+local bkg = display.newImage("Images/bkg.png", display.contentWidth, display.contentHeight)
 
 	--set the x and y position
 	bkg.x = display.contentCenterX
@@ -74,6 +75,8 @@ local bkg = display.newImage("Images/bkg.png", 0, 0)
 
 	-- send to back
 	bkg:toBack()
+
+	bkg:scale(1.9,1.9)
 
 ----------------------------------------------------------------------
 -- FUNCTIONS
