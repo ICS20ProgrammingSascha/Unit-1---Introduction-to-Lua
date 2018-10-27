@@ -60,12 +60,12 @@ function PopUp( )
 	mole.isVisible = true
 
 	-- the the hide function after 5000 milliseconds.
-	timer.performWithDelay(5000, Hide)
+	timer.performWithDelay(2000, Hide)
 end
 
 -- This function calls the popup function after three seconds
 function PopUpDelay( )
-	timer.performWithDelay( 3000, PopUp )
+	timer.performWithDelay( 2000, PopUp )
 end
 
 -- This function makes the mole invisible and then calls the PopUpDelay function
@@ -102,6 +102,8 @@ function Whacked( event )
 		score = score + 1
 		-- the display the score in the text object.
 		scoreObject.text = "Score:" .. score
+
+        mole.isVisible = false
 	end
 end
 
