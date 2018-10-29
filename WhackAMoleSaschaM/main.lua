@@ -10,24 +10,22 @@ display.setStatusBar(display.HiddenStatusBar)
 -------------------------------------
 -- SOUNDS
 ------------------------------------
--- bkg music
-local bkgMusic = audio.loadSound("Sounds/bkgMusic.mp3" ) 
+-- Incorrect sound
+local incorrectSound = audio.loadSound("Sounds/incorrectSound.mp3" ) 
 -- Setting a variable to an mp3 file
-local bkgMusicChannel
--- play the music
-bkgMusicChannel = audio.play(bkgMusic)
-
--- Whack sound
-local whackSound = audio.loadSound("Sounds/whackSound.mp3" ) 
--- Setting a variable to an mp3 file
-local whackSoundChannel
-------------------------------------------------
+local incorrectSoundChannel
 
 -- Creating background
-local bkg= display.newImageRect("Images/bkg.png", display.contentWidth, display.contentHeight)
+local bkg = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
 
--- scale the bkg to fit the screen size
-bkg:scale(2, 2)
+	-- sets the background colour
+	display.setDefault("background", 255/255, 153/255, 204/255 )
+
+	-- Setting Position
+	bkg.anchorX = 0
+	bkg.anchorY = 0
+	bkg.x = 0
+	bkg.y = 0
 
 -- Creating Mole
 local mole = display.newImage( "Images/mole.png" , 0, 0 )
@@ -37,7 +35,7 @@ local mole = display.newImage( "Images/mole.png" , 0, 0 )
 	mole.y = display.contentCenterY
 
 	-- scale down the size of the mole to be a third of it original size
-	mole:scale(1/2, 1/2)
+	-- mole:scale(2, 2)
 
 	-- make the mole invisible
 	mole.isVisible = false
@@ -60,12 +58,12 @@ function PopUp( )
 	mole.isVisible = true
 
 	-- the the hide function after 5000 milliseconds.
-	timer.performWithDelay(2000, Hide)
+	timer.performWithDelay(5000, Hide)
 end
 
 -- This function calls the popup function after three seconds
 function PopUpDelay( )
-	timer.performWithDelay( 2000, PopUp )
+	timer.performWithDelay( 3000, PopUp )
 end
 
 -- This function makes the mole invisible and then calls the PopUpDelay function
@@ -75,7 +73,7 @@ function Hide( )
 	mole.isVisible = false
 
 	-- Call the popUpDelay function.
-	PopUpDelay()
+
 end
 
 -- This function starts the game
@@ -85,30 +83,17 @@ end
 
 -- This function increments the score only if the mole is clicked. It then displays the 
 -- new score.
-
-local score = 0
-local scoreObject
--- display the score and sets the colour
-scoreObject = display.newText( "Score:" .. score , display.contentWidth/1.2, display.contentHeight/3, nil, 60 )
-scoreObject:setTextColor(1,255, 255,255, 0,255)
-
 function Whacked( event )
 
 	-- if touch phase just started
 	if (event.phase == "began") then
-		-- play sound effect
-		whackSoundChannel = audio.play(whackSound)
 		-- increase the score by 1
-		score = score + 1
 		-- the display the score in the text object.
-		scoreObject.text = "Score:" .. score
-
-        mole.isVisible = false
 	end
 end
 
 -----------------------Event Listeners------------------------------
--- Added the event listener to the moles so that if the mole is touched, the whacked function
+-- Added the event listener to the moles so that if the mole is touched, the whackes=d function
 -- is called
 mole:addEventListener( "touch", Whacked )
 
