@@ -30,6 +30,13 @@ redButton.x = display.contentWidth/2
 redButton.y = display.contentHeight/2
 redButton.isVisible = false
 
+-- create red button, set its position and make it invisible
+local checkMark = display.newImageRect("Images/checkmark.png",198,96)
+checkMark.x = display.contentWidth/2
+checkMark.y = display.contentHeight/5
+checkMark.isVisible = false
+
+
 --create text object, set its position and make it invisible
 local textObject =display.newText ("CLICKED!", 0, 0, nil, 50)
 textObject.x = display.contentWidth/2
@@ -47,6 +54,7 @@ local function BlueButtonListener(touch)
 		blueButton.isVisible = false
 		redButton.isVisible = true
 		textObject.isVisible = true
+		checkMark.isVisible = true
 		popSoundChannel = audio.play(popSound)
 	end
 
@@ -54,6 +62,7 @@ local function BlueButtonListener(touch)
 	blueButton.isVisible = true
 	redButton.isVisible = false
 	textObject.isVisible = false
+	checkMark.isVisible = false
 	popSoundChannel = audio.play(popSound)
 	end
 end
@@ -68,12 +77,14 @@ local function RedButtonListener(touch)
 		redButton.isVisible = false
 		blueButton.isVisible = true
 		textObject.isVisible = true
+		checkMark.isVisible = true
 	end
 
 	if (touch.phase == "ended") then
 	redButton.isVisible = true
 	blueButton.isVisible = false
 	textObject.isVisible = false
+	checkMark.isVisible = false
 	end
 end
 
