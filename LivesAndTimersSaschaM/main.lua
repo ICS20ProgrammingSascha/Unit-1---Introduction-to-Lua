@@ -176,8 +176,7 @@ local function NumericFieldListener(event)
 			-- call the function to decrease lives
 			DecreaseLives()
 		end
-
-
+		
 		--clear text field
 		event.target.text = ""
 	end
